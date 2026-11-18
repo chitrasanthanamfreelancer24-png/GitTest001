@@ -1,0 +1,59 @@
+Installation commands
+ ---------------------
+
+
+// Install TypeScript globally using npm
+npm install -g typescript 
+
+
+
+//for Macbook.
+Sudo npm install -g typescript
+
+
+//to check the version of typescript installed
+tsc -v 
+or
+npx tsc -v
+
+
+//to install typescript locally in a project
+npm install --save-dev typescript
+
+
+//to initialize a TypeScript project and create a tsconfig.json file
+tsc --init 
+or 
+npx tsc --init
+
+
+//to compile TypeScript files to JavaScript and execute the compiled JavaScript file
+tsc filename.ts   ->compiles filename.ts to filename.js
+node filename.js   -> executes the compiled JavaScript file
+
+
+//to run your TypeScript file directly without compiling it to JavaScript using ts-node
+npm install -g ts-node
+
+
+command:
+ts-node filename.ts
+or
+npx ts-node filename.ts
+
+
+tsconfig.json:
+--------------
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "ignoreDeprecations": "6.0",
+    "types": ["node"] ,
+    "resolveJsonModule": true
+  }
+}

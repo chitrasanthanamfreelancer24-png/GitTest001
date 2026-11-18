@@ -1,0 +1,57 @@
+Classroom1:
+https:login.salesforce.com
+
+
+testID
+yuvarani.sekar@testleaf.com
+TestLeaf@2028
+
+
+gauthami.vn@testleaf.com
+Qeagle@123
+
+
+steps:
+-> create folder as utils -> create json file 
+-> pass values in json file
+-> Create Test 
+--------------------------------------------------------------------------------------
+import test from "@playwright/test";
+
+import login from '../../../Data/Leaf.json'
+
+ test.describe.serial('Running test in serial mode',()=>{
+
+
+ for(let data of login){
+ test(Learn to read data from json file ${data.TestCaseId},async({page})=>{
+     await page.goto('https:leaftaps.com/opentaps/control/login')
+     await page.locator('[id="username"]').fill(data.userName)
+     await page.locator('[id="password"]').fill(data.password)
+     await page.locator('[class="decorativeSubmit"]').click()
+     await page.locator("a[contains(text(),'CRM/SFA')]").click()
+ })
+ } 
+ })
+
+let data1 = login[0]
+test.only(Learn to read data from json file ${data1.TestCaseId},async({page})=>{
+    await page.goto('https:leaftaps.com/opentaps/control/login')
+    await page.locator('[id="username"]').fill(data1.userName)
+    await page.locator('[id="password"]').fill(data1.password)
+    await page.locator('[class="decorativeSubmit"]').click()
+    await page.locator("a[contains(text(),'CRM/SFA')]").click()
+})
+
+
+[{
+    "TestCaseId":"T001",
+    "userName":"yuvarani.sekar@testleaf.com",
+    "password":"TestLeaf@2028"
+},
+{
+    "TestCaseId":"T002",
+    "userName":"gauthami.vn@testleaf.com",
+    "password":"Qeagle@123"
+
+}]
